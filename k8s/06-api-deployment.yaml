@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: api
-          image: ghcr.io/dw-fs05/k8s-azure-lab05:sha-5c26b55637f5f533556c36ac8a6fb43ec128fadb
+          image: ghcr.io/dw-fs05/k8s-azure-lab05:sha-fda4ad521ba576a0d249f3e498c4d216f40698eb
           imagePullPolicy: IfNotPresent
           ports:
             - name: http
