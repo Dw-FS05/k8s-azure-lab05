@@ -1,0 +1,9 @@
+# Copiar este archivo como terraform.tfvars y completar con los valores reales.
+project_id      = "TU_PROJECT_ID_DE_GCP"
+ssh_source_cidr = "38.7.14.68/32"
+region          = "us-central1"
+zone            = "us-central1-a"
+resource_prefix = "devops-k3s"
+machine_type    = "e2-medium"
+admin_username  = "azureuser"
+ssh_public_key_path = "~/.ssh/id_ed25519.pub"
