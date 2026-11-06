@@ -41,6 +41,8 @@ jobs:
           file: ./app/Dockerfile
           # PRACTICA: cambiar false por true para publicar la imagen.
           push: true
-          tags: ${{ env.IMAGE_NAME }}:sha-${{ github.sha }}
+          tags: |
+            ${{ env.IMAGE_NAME }}:sha-${{ github.sha }}
+            ${{ env.IMAGE_NAME }}:latest
           labels: |
             org.opencontainers.image.source=https://github.com/${{ github.repository }}
