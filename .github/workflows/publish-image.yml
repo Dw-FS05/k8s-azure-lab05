@@ -30,6 +30,10 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Normalizar nombre del repositorio a minusculas
+        run: |
+          echo "IMAGE_NAME=ghcr.io/$(echo "${{ github.repository }}" | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
+
       - name: Construir y publicar la imagen
         uses: docker/build-push-action@v6
         with:
@@ -37,6 +41,6 @@ jobs:
           file: ./app/Dockerfile
           # PRACTICA: cambiar false por true para publicar la imagen.
           push: true
-          tags: ghcr.io/${{ github.repository }}:sha-${{ github.sha }}
+          tags: ${{ env.IMAGE_NAME }}:sha-${{ github.sha }}
           labels: |
             org.opencontainers.image.source=https://github.com/${{ github.repository }}
